@@ -53,8 +53,8 @@ RUN	apk --update add \
 RUN cd /tmp \
     && mkdir -p /usr/share/awl \
     && mkdir -p /var/www/davical \
-	&& wget "https://gitlab.com/davical-project/awl/repository/archive.tar.gz?ref=r0.59" -O awl.tar.gz \
-    && wget "https://gitlab.com/davical-project/davical/repository/archive.tar.gz?ref=r1.1.7" -O davical.tar.gz \
+	&& wget "https://gitlab.com/davical-project/awl/repository/archive.tar.gz?ref=r0.60" -O awl.tar.gz \
+    && wget "https://gitlab.com/davical-project/davical/repository/archive.tar.gz?ref=r1.1.8" -O davical.tar.gz \
     && tar -xf awl.tar.gz --strip 1 -C /usr/share/awl \
     && tar -xf davical.tar.gz --strip 1 -C /var/www/davical/ \
     && rm awl.tar.gz \

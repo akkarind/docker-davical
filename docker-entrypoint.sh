@@ -12,7 +12,10 @@ mkdir -p /etc/lighttpd/ssl/
 if [ -f /usr/local/share/certdata/$CERT_FILE ] && [ -f /usr/local/share/certdata/$PRIV_FILE ]
 	then
 		cat /usr/local/share/certdata/$CERT_FILE /usr/local/share/certdata/$PRIV_FILE > /etc/lighttpd/ssl/localhost.pem 
-		chmod 400 /etc/lighttpd/ssl/localhost.pem
+		cp /usr/local/share/certdata/$CERT_FILE /etc/lighttpd/ssl/$CERT_FILE
+		cp /usr/local/share/certdata/$PRIV_FILE /etc/lighttpd/ssl/$PRIV_FILE
+		cp /usr/local/share/certdata/$CHAIN_FILE /etc/lighttpd/ssl/$CHAIN_FILE
+		chmod 400 /etc/lighttpd/ssl/*.pem
 elif [ ! -f /etc/lighttpd/ssl/localhost.pem ]
 	then
 		openssl req -x509 -newkey rsa:4096 -keyout /tmp/key.pem -out /tmp/cert.pem -days 365 -subj '/CN=localhost' -nodes -sha256
